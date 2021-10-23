@@ -327,4 +327,4 @@ client.on("messageReactionRemove", async function (reaction, user) {
 
 });
 
-client.login(process.env.bot_token)
+client.login(config.token)
