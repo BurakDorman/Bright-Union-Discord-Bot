@@ -1,9 +1,9 @@
-const fs=require('fs');
-const Discord=require("discord.js");
-const client=new Discord.Client();
+const fs = require('fs');
+const Discord = require("discord.js");
+const client = new Discord.Client();
 const db = require('quick.db')
 const moment = require("moment");
-const config=require("./config.json");
+const config = require("./config.json");
 const express = require('express');
 const activities = require('./assets/activities');
 ////
@@ -56,10 +56,10 @@ client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
 fs.readdir('./commands/', (err, files) => {
   if (err) console.error(err);
-  log(`${files.length} adet komut yükleniyor.`);
+  log(`${files.length} commands are loading.`);
   files.forEach(f => {
     let props = require(`./commands/${f}`);
-    log(`Yüklenen komut: ${props.help.name.toUpperCase()}.`);
+    log(`Command is loaded: ${props.help.name.toUpperCase()}.`);
     client.commands.set(props.help.name, props);
     props.conf.aliases.forEach(alias => {
       client.aliases.set(alias, props.help.name);
@@ -128,7 +128,7 @@ client.yetkiler = message => {
   if(message.member.hasPermission("MANAGE_GUILD")) permlvl = 4;
   if(message.member.hasPermission("ADMINISTRATOR")) permlvl = 5;
   if(message.author.id === message.guild.ownerID) permlvl = 6;
-  if(message.author.id === config.sahip) permlvl = 7;
+  if(message.author.id === config.owner) permlvl = 7;
   return permlvl;
 };
 
@@ -137,7 +137,7 @@ const logEmbed = new Discord.MessageEmbed()
     .setTitle('Log')
 
 //=========================================================================
-// KARŞILAMA MESAJI VE TANITIM MESAJI
+// GREETINGS AND INTRODUCTION
 //=========================================================================
 
 client.on('guildMemberAdd', member => {
