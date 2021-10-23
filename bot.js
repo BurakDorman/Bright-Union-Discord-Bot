@@ -144,7 +144,7 @@ client.on('guildMemberAdd', member => {
   if (member.guild.id === "0890247463817072671") { //cmc, cgecko, cmcal, isthiscoinascam
     const welcome = new Discord.MessageEmbed()
       .setColor("RANDOM")
-      .setAuthor("Bright Union DeFi Insurance Aggregator", "https://brightunion.io/wp-content/uploads/2021/10/05183502/bright-icon-small.svg", "https://brightunion.io")
+      .setAuthor("Bright Union DeFi Insurance Aggregator", "https://ibb.co/R2TxgQx", "https://brightunion.io")
       .setDescription("Hello and welcome to our Discord server!\nI am to introduce us.\n\n **•** Before we start, I assume you read and understood our community rules at <#901146961384710185>.\n **•** Skyblock sunucumuz hakkında bilgi edinmek istiyorsan <#852329942309011467> kanalına göz atabilirsin\n **•** Discord sunucumuzdaki tüm kanal izinlerini almak için oyun sunucumuzdaki hesabınla Discord hesabını eşleştirmelisin. Bunu nasıl yapacağının cevabını <#851228289963393075> kanalında bulabilirsin.\n **•** Oyun sunucumuza bağlanmak için sunucu adresi olarak \`mc.skychain.me\` kullanılır.\n **•** [Website (Haberler, blog, mağaza ve diğerleri.)](https://mc.skychain.me)\n **•** Bir sorun yaşadığında [site desteğini](https://mc.skychain.me/destek) ya da <#827532006203850773> kanalında \`!destek\` komutunu kullanmaktan çekinme.\n **•** Eğer yanlışlıkla Discord sunucumuzu terk edersen, yeniden katılman için adres: [https://discord.gg/48ZD8QDxJE](https://discord.gg/48ZD8QDxJE)\n\nTeknik ekibimiz çok ilgilidir ve hiçbir sorunu ihmal etmezler, yönetim ekibimiz ise saygın, saygılı ve soğukkanlı bireylerden oluşur; düzeni sağlamakta zorluk çekmezler. Yıllarca beraber olmak dileğiyle.")
     member.send(welcome)
     const vote = new Discord.MessageEmbed()
