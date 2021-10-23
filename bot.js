@@ -165,7 +165,6 @@ client.on('guildMemberAdd', member => {
       .setColor("RANDOM")
       .setAuthor("Bright Union DeFi Insurance Aggregator", "https://ibb.co/R2TxgQx", "https://brightunion.io")
       .setDescription("Merhaba, ben Cloudia; Skychain'in lider botuyum. Sana oyun sunucumuzdan bahsetmek istiyorum, umarım rahatsızlık vermiyorumdur.\n\n 👷 **İlgili ve Yetkin Ekip**\nBağlantı sorunları, oyun hataları, teknik aksaklıklar gibi durumlarla hiç vakit kaybetmeden ilgilenilmesi gerektiğini çok iyi biliyoruz.\n\n 👮 **Sorumlu ve Adil Yönetim**\nTopluluk yöneticilerimiz ve personellerimiz kendini bilen, profesyonel insanlar. Personel alımlarında 99 kriter uygulanıyor.\n\n 🎫 **Destek Sistemi**\nSizi önemsiyor ve sorunlarınızı çözümsüz bırakmıyoruz. İletişim için [site desteğini](https://mc.skychain.me/destek) ya da #bot-komut kanalında \`!destek\` komutunu kullanmaktan çekinme.\n\n 🧊 **Son Sürüm Minecraft (Java Edition)**\nMinecraft'ın güncel kalması gerektiğine inanıyor ve gelişimini destekliyoruz.\n\n 🏘️ **Özen Gösterilmiş Bir Tertip**\nOyun tertibimizin hazırlanması için çok emek verilmiş ve gerekli özen gösterilmiştir. Başlıca özelliklerimiz şöyle sıralanabilir:\n\n **•** Farmland, Lumberland gibi kaynak bölgeleri\n **•** Güçlü AI rakiplerin bulunduğu kaynak bölgesi\n **•** Ada asistanı olarak çiftçi (NPC)\n **•** Özel büyüler\n **•** Minyonlar\n **•** Görevler\n **•** Oyuncu seviyesi\n **•** Kozmetikler\n\nSeni aramızda görmekten mutluluk duyarız.")
-      //.setFooter("Bu, izinli bir reklamdır.", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqnQ6Q6rmzg9hpyQGGH2M5cEzj6_LDMlH0wQ&usqp=CAU")
     member.send(promotion)
     member.send("https://discord.gg/48ZD8QDxJE")
   }
@@ -215,38 +214,7 @@ client.on("messageUpdate", async function (oldMessage, newMessage) {
 });
 
 //=========================================================================
-// OTOMATİK DUYURU
-//=========================================================================
-
-//client.on("ready", () => {
-
-//  setInterval(function() {
-//    const embed = new Discord.MessageEmbed()
-//      .setColor("RANDOM")
-//      .setTitle('Oy Bağlantıları')
-//      .setAuthor("Skychain Minecraft & Discord Sunucusu", "https://skychain.me/assets/img/favicon.png")
-//      .setDescription(`Sunucumuz için oy vererek Skychain'in tanınmasına yardımcı olabilirsiniz!`)
-//		  .setURL('https://mc.skychain.me/sayfa/1/sunucumuzu-oyla')
-//		  .addFields(
-//    	  { name: "1. Link", value: "[minecraft-mp.com](https://vote1.skychain.me)", inline: true },
-//    	  { name: "2. Link", value: "[planetminecraft.com](https://vote2.skychain.me)", inline: true },
-//    	  { name: "3. Link", value: "[topg.org](https://vote3.skychain.me)", inline: true },
-//    	  { name: "4. Link", value: "[minecraft-server.net](https://vote4.skychain.me)", inline: true },
-//    	  { name: "5. Link", value: "[minecraftserver.gen.tr](https://vote5.skychain.me)", inline: true },
-//    	  { name: "6. Link", value: "[forum.gamer.com.tr](https://fgamer.skychain.me)", inline: true },
-//		  )
-	  //	.setThumbnail('https://cdn.discordapp.com/attachments/418838573597589504/777572652939477022/silmaril_logo_png_shadows_glows_red_velvet_with_text.png')
-	  //	.setFooter('!oy @ <#827532006203850773>')
-//    client.channels.cache.get(`827530103025041409`).send(embed)
-    //client.channels.cache.get(`655474178039873537`).send(embed).then(value => {
-      //client.channels.cache.get(`778693704051327057`).send(embed)
-    //});
-//  }, 28800000);
-
-//})
-
-//=========================================================================
-// DESTEK
+// SUPPORT SYSTEM
 //=========================================================================
 
 client.on("message", async(message) => {
@@ -321,7 +289,7 @@ client.on("message", async(message) => {
 });
 
 //=========================================================================
-// EMOJI ROL
+// EMOJI ROLE AUTOMATION
 //=========================================================================
 
 client.on("messageReactionAdd", async function (reaction, user) {
