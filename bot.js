@@ -9,16 +9,16 @@ const activities = require('./assets/activities');
 ////
 const app = express()
 app.get('/', (req, res) => res.send("Bot Aktif"))
-app.listen(process.env.PORT, () => console.log('Port ayarlandı: ' + process.env.PORT))
+app.listen(process.env.PORT, () => console.log('Port is set: ' + process.env.PORT))
 ////
 
-var prefix = config.prefix;
+var prefix = process.env.prefix;
 
 client.on("message", message => {
   let client = message.client;
   if (message.author.bot) return;
-  if (!message.content.startsWith(config.prefix)) return;
-  let command = message.content.split(' ')[0].slice(config.prefix.length);
+  if (!message.content.startsWith(process.env.prefix)) return;
+  let command = message.content.split(' ')[0].slice(process.env.prefix.length);
   let params = message.content.split(' ').slice(1);
   let perms = client.yetkiler(message);
   let cmd;
@@ -137,20 +137,20 @@ const logEmbed = new Discord.MessageEmbed()
     .setTitle('Log')
 
 //=========================================================================
-// GREETINGS AND INTRODUCTION
+// GREETINGS AND INTRODUCTION process.env.
 //=========================================================================
 
 client.on('guildMemberAdd', member => {
-  if (member.guild.id === "0890247463817072671") { //cmc, cgecko, cmcal, isthiscoinascam
+  if (member.guild.id === "885091679219118091") { //cmc, cgecko, cmcal, isthiscoinascam
     const welcome = new Discord.MessageEmbed()
       .setColor("RANDOM")
       .setAuthor("Bright Union DeFi Insurance Aggregator", "https://ibb.co/R2TxgQx", "https://brightunion.io")
-      .setDescription("Hello and welcome to our Discord server!\nI am to introduce us.\n\n **•** Before we start, I assume you read and understood our community rules at <#901146961384710185>.\n **•** Skyblock sunucumuz hakkında bilgi edinmek istiyorsan <#852329942309011467> kanalına göz atabilirsin\n **•** Discord sunucumuzdaki tüm kanal izinlerini almak için oyun sunucumuzdaki hesabınla Discord hesabını eşleştirmelisin. Bunu nasıl yapacağının cevabını <#851228289963393075> kanalında bulabilirsin.\n **•** Oyun sunucumuza bağlanmak için sunucu adresi olarak \`mc.skychain.me\` kullanılır.\n **•** [Website (Haberler, blog, mağaza ve diğerleri.)](https://mc.skychain.me)\n **•** Bir sorun yaşadığında [site desteğini](https://mc.skychain.me/destek) ya da <#827532006203850773> kanalında \`!destek\` komutunu kullanmaktan çekinme.\n **•** Eğer yanlışlıkla Discord sunucumuzu terk edersen, yeniden katılman için adres: [https://discord.gg/48ZD8QDxJE](https://discord.gg/48ZD8QDxJE)\n\nTeknik ekibimiz çok ilgilidir ve hiçbir sorunu ihmal etmezler, yönetim ekibimiz ise saygın, saygılı ve soğukkanlı bireylerden oluşur; düzeni sağlamakta zorluk çekmezler. Yıllarca beraber olmak dileğiyle.")
+      .setDescription("Hello and welcome to our Discord server!\nI am to introduce us.\n\n **•** Before we start, I assume you read and understood our community rules at <#901146961384710185>.\n **•** Xxx <#852329942309011467> xxx\n **•** Yyy <#851228289963393075> yyy.\n **•** [Website (News, blog, store and zzz.)](https://mc.skychain.me)\n **•** Whenever you faced with a problem [online support](https://mc.skychain.me/destek) or discord support at <#827532006203850773> with command \`!help\` don't hesitate.\n **•** If you left our Discord server and want to come back, use this link: [https://discord.gg/48ZD8QDxJE](https://discord.gg/48ZD8QDxJE)\n\nTo sum up...")
     member.send(welcome)
     const vote = new Discord.MessageEmbed()
       .setColor("RANDOM")
-      .setDescription("...unutmadan! İzninle sunucumuza ait oylama adreslerini aşağıya bırakıyorum, böylece onlara daha rahat erişebileceksin. Skychain için oy vererek topluluğumuzun tanınmasına ve daha geniş kitlelere ulaşmasına yardımcı olabilirsin!")
-		  .addFields(
+      .setDescription("...before forget! I'll drop down our socials and profiles, so you can stay tuned with us! Share our CoinMarketCal profile with your friends and give vote "Real" for our upcoming events allways!")
+      .addFields(
     	  { name: "1. Link", value: "[minecraft-mp.com](https://vote1.skychain.me)", inline: true },
     	  { name: "2. Link", value: "[planetminecraft.com](https://vote2.skychain.me)", inline: true },
     	  { name: "3. Link", value: "[topg.org](https://vote3.skychain.me)", inline: true },
@@ -160,11 +160,10 @@ client.on('guildMemberAdd', member => {
 		  )
     member.send(vote)
   }
-  if (member.guild.id !== "890247463817072671") {
+  if (member.guild.id !== "885091679219118091") {
     const promotion = new Discord.MessageEmbed()
       .setColor("RANDOM")
       .setAuthor("Bright Union DeFi Insurance Aggregator", "https://ibb.co/R2TxgQx", "https://brightunion.io")
-      .setDescription("Merhaba, ben Cloudia; Skychain'in lider botuyum. Sana oyun sunucumuzdan bahsetmek istiyorum, umarım rahatsızlık vermiyorumdur.\n\n 👷 **İlgili ve Yetkin Ekip**\nBağlantı sorunları, oyun hataları, teknik aksaklıklar gibi durumlarla hiç vakit kaybetmeden ilgilenilmesi gerektiğini çok iyi biliyoruz.\n\n 👮 **Sorumlu ve Adil Yönetim**\nTopluluk yöneticilerimiz ve personellerimiz kendini bilen, profesyonel insanlar. Personel alımlarında 99 kriter uygulanıyor.\n\n 🎫 **Destek Sistemi**\nSizi önemsiyor ve sorunlarınızı çözümsüz bırakmıyoruz. İletişim için [site desteğini](https://mc.skychain.me/destek) ya da #bot-komut kanalında \`!destek\` komutunu kullanmaktan çekinme.\n\n 🧊 **Son Sürüm Minecraft (Java Edition)**\nMinecraft'ın güncel kalması gerektiğine inanıyor ve gelişimini destekliyoruz.\n\n 🏘️ **Özen Gösterilmiş Bir Tertip**\nOyun tertibimizin hazırlanması için çok emek verilmiş ve gerekli özen gösterilmiştir. Başlıca özelliklerimiz şöyle sıralanabilir:\n\n **•** Farmland, Lumberland gibi kaynak bölgeleri\n **•** Güçlü AI rakiplerin bulunduğu kaynak bölgesi\n **•** Ada asistanı olarak çiftçi (NPC)\n **•** Özel büyüler\n **•** Minyonlar\n **•** Görevler\n **•** Oyuncu seviyesi\n **•** Kozmetikler\n\nSeni aramızda görmekten mutluluk duyarız.")
     member.send(promotion)
     member.send("https://discord.gg/48ZD8QDxJE")
   }
@@ -181,7 +180,7 @@ client.on("guildMemberAdd", (member) => {
   if (db.has(`guilds_${member.guild.id}.giris`)) {
     var welcome = member.guild.channels.cache.get(db.get(`guilds_${member.guild.id}.giris`))
     embed.setColor('#05fb22')
-    embed.setDescription(`**${member.user.username}** discord sunucumuza katıldı. Artık ${member.guild.members.cache.size} kişiyiz!`)
+    embed.setDescription(`**${member.user.username}** has joint us! Now we are ${member.guild.members.cache.size} fellas!`)
     welcome.send(embed)
   }
 });
@@ -190,7 +189,7 @@ client.on("guildMemberRemove", (member) => {
   if (db.has(`guilds_${member.guild.id}.giris`)) {
     var welcome = member.guild.channels.cache.get(db.get(`guilds_${member.guild.id}.giris`))
     embed.setColor('#fb0505')
-    embed.setDescription(`**${member.user.username}** discord sunucumuzdan ayrıldı. Artık ${member.guild.members.cache.size} kişiyiz!`)
+    embed.setDescription(`**${member.user.username}** has left us... I hope s/he will come back later! Now we are ${member.guild.members.cache.size} fellows!`)
     welcome.send(embed)
   }
 });
@@ -198,7 +197,7 @@ client.on("guildMemberRemove", (member) => {
 client.on("messageDelete", async function (message) {
   var boolean = message.author == null || false
   if (db.has(`guilds_${message.guild.id}.log`) && !boolean) {
-    logEmbed.setDescription(`${message.author} adlı kullanıcının mesajı silindi.\n\n**Silinen mesaj:** ` + message.content)
+    logEmbed.setDescription(`A text message from user ${message.author} has been deleted.\n\n**Content:** ` + message.content)
     var channel = message.guild.channels.cache.find(ch => ch.id == db.get(`guilds_${message.guild.id}.log`))
     channel.send(logEmbed)
   }
@@ -207,124 +206,10 @@ client.on("messageDelete", async function (message) {
 client.on("messageUpdate", async function (oldMessage, newMessage) {
   var boolean = oldMessage.author == null || false
   if (db.has(`guilds_${oldMessage.guild.id}.log`) && oldMessage.content.length > 0 && !boolean) {
-    logEmbed.setDescription(`${oldMessage.author} adlı kullanıcının mesajı güncellendi.\n\n**Eski mesaj:** ${oldMessage.content}\n**Yeni mesaj:** ${newMessage.content}`)
+    logEmbed.setDescription(`User ${oldMessage.author} has edited some of their messages.\n\n**Old:** ${oldMessage.content}\n**New:** ${newMessage.content}`)
     var channel = oldMessage.guild.channels.cache.find(ch => ch.id == db.get(`guilds_${oldMessage.guild.id}.log`))
     return channel.send(logEmbed)
   }
-});
-
-//=========================================================================
-// SUPPORT SYSTEM
-//=========================================================================
-
-client.on("message", async(message) => {
-  if (message.guild !== null)
-  if (message.guild.id === "826925131493933127") {
-    const i = await db.fetch(`desteksistemi_${message.guild.id}`, true)
-    if(i) {
-      if(message.content.toLowerCase() === '!destek') {
-        //let talepler = db.fetch(`talepler_${message.author.id}`)
-        //if(`${talepler}` == 2) return message.reply(`Destek açma sınırına ulaştınız lütfen diğer destek taleplerinizin çözülmesini bekleyiniz`)
-        let kanal1 = await db.fetch(`destekkanal_${message.guild.id}`)
-        let kategori = db.get(`destekkg_${message.guild.id}`)
-        if(message.channel.id != kanal1) return message.channel.send(new Discord.MessageEmbed().setColor('RANDOM').setDescription(`Bu komut yalnızca <#${kanal1}> kanalında kullanılabilir.`)).then(msg => msg.delete({timeout: 5000}))
-        if(message.channel.id == kanal1) {
-          message.guild.channels.create(`talep-${message.author.username}`, "text").then(c => {
-            //db.add(`talepler_${message.author.id}`, +1)
-            c.setTopic(`Talebi kapatmak için !kapat yazılır.`);
-            let destek = message.guild.roles.cache.find(name => "Destek");
-            let destekrol = db.fetch(`destekrol_${message.guild.id}`);
-            let role2 = message.guild.roles.cache.find(name => "@everyone");
-            c.createOverwrite(destek, {
-              SEND_MESSAGES: true,
-              VIEW_CHANNEL: true
-            });
-            c.createOverwrite(destekrol, {
-              SEND_MESSAGES: true,
-              VIEW_CHANNEL: true
-            });
-            c.createOverwrite(role2, {
-              SEND_MESSAGES: false,
-              VIEW_CHANNEL: false
-            });
-            c.createOverwrite(message.author, {
-              SEND_MESSAGES: true,
-              VIEW_CHANNEL: true
-            });
-            message.channel.send(`:white_check_mark: Yardım talebiniz oluşturuldu, ${c}.`).then(msg => msg.delete({timeout: 5000}));
-            message.delete();
-            const embed = new Discord.MessageEmbed()
-              .setColor(0xCF40FA)
-              .addField(`Merhaba ${message.author.username}.`, `Yardım talebini neden açtığını anlat. Yetkililer en kısa zamanda cevap verecektir. ||@everyone||`)
-              .addField(`Talebi kapatmak için`,`!kapat yazılır.`)
-              .setTimestamp();
-            c.send({ embed: embed });
-            c.setParent(`${kategori}`)
-          }).catch(console.error);
-        }
-      }
-      if(message.content.toLowerCase().startsWith(prefix + `kapat`)) {
-        if(!message.channel.name.startsWith(`talep-`)) return message.channel.send(`Destek talebinizi yalnızca talep kanalınızdan kapatabilirsiniz.`);
-          message.channel.send(`Emin misin? Onayladıktan sonra geri alınamaz!\nOnaylamak için \`onayla\` yaz. Bu işlem 10 saniye sonra zaman aşımına uğrayacak.`)
-          .then((m) => {
-            message.channel.awaitMessages(response => response.content === 'onayla', {
-              max: 1,
-              time: 10000,
-              errors: ['time'],
-            })
-          .then((collected) => {
-            //db.add(`talepler_${message.author.id}`, -1)
-            message.channel.delete();
-            message.guild.channels.delete();
-          })
-          .catch(() => {
-            m.edit('Kapatma işlemi zaman aşımına uğradı, destek talebin kapatılmadı.').then(m2 => {
-              m2.delete();
-            }, 3000);
-          });
-        });
-      }
-    }
-  }
-});
-
-//=========================================================================
-// EMOJI ROLE AUTOMATION
-//=========================================================================
-
-client.on("messageReactionAdd", async function (reaction, user) {
-
-  if (reaction.message.partial) await reaction.message.fetch()
-  if (reaction.partial) await reaction.fetch()
-
-  if (db.has(`guilds_${reaction.message.guild.id}.emojirol.channel`) && db.has(`guilds_${reaction.message.guild.id}.emojirol.${reaction.emoji.name}`)) {
-      if (reaction.message.channel.id == db.get(`guilds_${reaction.message.guild.id}.emojirol.channel`)) {
-
-          var member = reaction.message.guild.members.cache.find(m => m.id == user.id)
-          member.roles.add(db.get(`guilds_${reaction.message.guild.id}.emojirol.${reaction.emoji.name}`))
-      }
-  }
-
-});
-
-
-client.on("messageReactionRemove", async function (reaction, user) {
-
-  if (reaction.message.partial) await reaction.message.fetch()
-  if (reaction.partial) await reaction.fetch()
-
-  if (db.has(`guilds_${reaction.message.guild.id}.emojirol.channel`) && db.has(`guilds_${reaction.message.guild.id}.emojirol.${reaction.emoji.name}`)) {
-
-      if (reaction.message.channel.id == db.get(`guilds_${reaction.message.guild.id}.emojirol.channel`)) {
-
-          var member = reaction.message.guild.members.cache.find(m => m.id == user.id)
-
-          member.roles.remove(db.get(`guilds_${reaction.message.guild.id}.emojirol.${reaction.emoji.name}`))
-
-      }
-
-  }
-
 });
 
 client.login(config.token)
