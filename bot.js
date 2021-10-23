@@ -359,4 +359,4 @@ client.on("messageReactionRemove", async function (reaction, user) {
 
 });
 
-client.login(config.token)
+client.login(process.env.bot_token)
