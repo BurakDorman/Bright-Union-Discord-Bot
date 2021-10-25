@@ -3,9 +3,11 @@ const db = require("quick.db");
 
 exports.run = async (client, message, args) => {
   if (message.guild !== null)
+  var role = message.guild.roles.find(role => role.id === "902146856405057576");
   if (message.channel.id === "901146961384710185") {
-    message.author.id.roles.add("902146856405057576")
-    message.channel.send("${message.author} has been verified!").then(msg => msg.delete({timeout: 5000}))
+    message.member.addRole(role);
+    //message.author.id.roles.add("902146856405057576")
+    //message.channel.send("${message.author} has been verified!").then(msg => msg.delete({timeout: 5000}))
     };
     return
 }
