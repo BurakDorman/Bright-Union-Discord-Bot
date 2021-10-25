@@ -24,7 +24,7 @@ exports.conf = {
 };
 
 exports.help = {
-  name: 'faq-what_is_a_cover',
+  name: 'what_is_cover',
   description: 'Admin command.',
   usage: ''
 };
