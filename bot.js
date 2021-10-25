@@ -233,7 +233,7 @@ client.on("message", async(message) => {
   if (message.guild.id === "890247463817072671") {
     const i = await db.fetch(`desteksistemi_${message.guild.id}`, true)
     if(i) {
-      if(message.content.toLowerCase() === '!destek') {
+      if(message.content.toLowerCase() === '!ticket') {
         let kanal1 = await db.fetch(`destekkanal_${message.guild.id}`)
         let kategori = db.get(`destekkg_${message.guild.id}`)
         if(message.channel.id != kanal1) return message.channel.send(new Discord.MessageEmbed().setColor('RANDOM').setDescription(`This command can only be executed at <#${kanal1}> channel.`)).then(msg => msg.delete({timeout: 5000}))
@@ -241,18 +241,18 @@ client.on("message", async(message) => {
           message.guild.channels.create(`talep-${message.author.username}`, "text").then(c => {
             //db.add(`talepler_${message.author.id}`, +1)
             c.setTopic(`You can type !close when you want to close your ticket.`);
-            let destek = message.guild.roles.cache.find(name => "Destek");
+            //let destek = message.guild.roles.cache.find(name => "Destek");
             let destekrol = db.fetch(`destekrol_${message.guild.id}`);
-            let role2 = message.guild.roles.cache.find(name => "@everyone");
-            c.createOverwrite(destek, {
-              SEND_MESSAGES: true,
-              VIEW_CHANNEL: true
-            });
+            let every = message.guild.roles.cache.find(name => "@everyone");
+            //c.createOverwrite(destek, {
+            //  SEND_MESSAGES: true,
+            //  VIEW_CHANNEL: true
+            //});
             c.createOverwrite(destekrol, {
               SEND_MESSAGES: true,
               VIEW_CHANNEL: true
             });
-            c.createOverwrite(role2, {
+            c.createOverwrite(every, {
               SEND_MESSAGES: false,
               VIEW_CHANNEL: false
             });
@@ -272,8 +272,8 @@ client.on("message", async(message) => {
           }).catch(console.error);
         }
       }
-      if(message.content.toLowerCase().startsWith(prefix + `close`)) {
-        if(!message.channel.name.startsWith(`talep-`)) return message.channel.send(`You can use this command only at your own support channel.`);
+      if(message.content.toLowerCase().startsWith(process.env.prefix + `close`)) {
+        if(!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`You can use this command only at your own support channel.`);
           message.channel.send(`Are you sure? It cannot irrevocable!\nType \`confirm\` to confirm in **10 seconds**.`)
           .then((m) => {
             message.channel.awaitMessages(response => response.content === 'confirm', {
@@ -302,38 +302,25 @@ client.on("message", async(message) => {
 //=========================================================================
 
 client.on("messageReactionAdd", async function (reaction, user) {
-
   if (reaction.message.partial) await reaction.message.fetch()
   if (reaction.partial) await reaction.fetch()
-
   if (db.has(`guilds_${reaction.message.guild.id}.emojirol.channel`) && db.has(`guilds_${reaction.message.guild.id}.emojirol.${reaction.emoji.name}`)) {
       if (reaction.message.channel.id == db.get(`guilds_${reaction.message.guild.id}.emojirol.channel`)) {
-
           var member = reaction.message.guild.members.cache.find(m => m.id == user.id)
           member.roles.add(db.get(`guilds_${reaction.message.guild.id}.emojirol.${reaction.emoji.name}`))
       }
   }
-
 });
 
-
 client.on("messageReactionRemove", async function (reaction, user) {
-
   if (reaction.message.partial) await reaction.message.fetch()
   if (reaction.partial) await reaction.fetch()
-
   if (db.has(`guilds_${reaction.message.guild.id}.emojirol.channel`) && db.has(`guilds_${reaction.message.guild.id}.emojirol.${reaction.emoji.name}`)) {
-
       if (reaction.message.channel.id == db.get(`guilds_${reaction.message.guild.id}.emojirol.channel`)) {
-
           var member = reaction.message.guild.members.cache.find(m => m.id == user.id)
-
           member.roles.remove(db.get(`guilds_${reaction.message.guild.id}.emojirol.${reaction.emoji.name}`))
-
       }
-
   }
-
 });
 
 client.login(process.env.token)
