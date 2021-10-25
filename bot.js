@@ -168,44 +168,4 @@ client.on('guildMemberAdd', member => {
   }
 });
 
-//=========================================================================
-// LOG
-//=========================================================================
-
-client.on("guildMemberAdd", (member) => {
-  if (db.has(`guilds_${member.guild.id}.giris`)) {
-    var welcome = member.guild.channels.cache.get(db.get(`guilds_${member.guild.id}.giris`))
-    embed.setColor('#05fb22')
-    embed.setDescription(`**${member.user.username}** has joint us! Now we are ${member.guild.members.cache.size} fellas!`)
-    welcome.send(embed)
-  }
-});
-
-client.on("guildMemberRemove", (member) => {
-  if (db.has(`guilds_${member.guild.id}.giris`)) {
-    var welcome = member.guild.channels.cache.get(db.get(`guilds_${member.guild.id}.giris`))
-    embed.setColor('#fb0505')
-    embed.setDescription(`**${member.user.username}** has left us... I hope s/he will come back later! Now we are ${member.guild.members.cache.size} fellows!`)
-    welcome.send(embed)
-  }
-});
-
-client.on("messageDelete", async function (message) {
-  var boolean = message.author == null || false
-  if (db.has(`guilds_${message.guild.id}.log`) && !boolean) {
-    logEmbed.setDescription(`A text message from user ${message.author} has been deleted.\n\n**Content:** ` + message.content)
-    var channel = message.guild.channels.cache.find(ch => ch.id == db.get(`guilds_${message.guild.id}.log`))
-    channel.send(logEmbed)
-  }
-});
-
-client.on("messageUpdate", async function (oldMessage, newMessage) {
-  var boolean = oldMessage.author == null || false
-  if (db.has(`guilds_${oldMessage.guild.id}.log`) && oldMessage.content.length > 0 && !boolean) {
-    logEmbed.setDescription(`User ${oldMessage.author} has edited some of their messages.\n\n**Old:** ${oldMessage.content}\n**New:** ${newMessage.content}`)
-    var channel = oldMessage.guild.channels.cache.find(ch => ch.id == db.get(`guilds_${oldMessage.guild.id}.log`))
-    return channel.send(logEmbed)
-  }
-});
-
 client.login(process.env.token)
