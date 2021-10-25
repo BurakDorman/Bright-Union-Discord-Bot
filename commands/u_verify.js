@@ -8,7 +8,7 @@ exports.run = async (client, message, args) => {
     message.member.roles.add(role);
     //message.author.id.roles.add("902146856405057576")
     message.delete();
-    message.channel.send("<@${message.member.id}> has been verified!").then(msg => msg.delete({timeout: 5000}))
+    message.channel.send("${message.author.id} has been verified!").then(msg => msg.delete({timeout: 5000}))
     };
     return
 }
