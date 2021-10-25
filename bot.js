@@ -208,4 +208,15 @@ client.on("messageUpdate", async function (oldMessage, newMessage) {
   }
 });
 
+client.on("message", async(message) => {
+  if (message.guild !== null)
+  if (message.guild.id === "890247463817072671")
+  if (message.channel.id === "901146961384710185") {
+    if(message.content.toLowerCase() !== '!verify') {
+      message.channel.send(`:x: You can only type **!verify** here.`).then(msg => msg.delete({timeout: 5000}));
+      message.delete();
+    }
+  }
+});
+
 client.login(process.env.token)
