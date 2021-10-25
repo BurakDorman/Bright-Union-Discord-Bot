@@ -140,31 +140,31 @@ const logEmbed = new Discord.MessageEmbed()
 //=========================================================================
 
 client.on('guildMemberAdd', member => {
-  if (member.guild.id === "885091679219118091") { //cmc, cgecko, cmcal, isthiscoinascam
+  if (member.guild.id === "890247463817072671") { //cmc, cgecko, cmcal, isthiscoinascam
     const welcome = new Discord.MessageEmbed()
       .setColor("RANDOM")
       .setAuthor("Bright Union DeFi Insurance Aggregator", "https://ibb.co/R2TxgQx", "https://brightunion.io")
       .setDescription("Hello and welcome to our Discord server!\nI am to introduce us.\n\n **•** Before we start, I assume you read and understood our community rules at <#901146961384710185>.\n **•** Xxx <#852329942309011467> xxx\n **•** Yyy <#851228289963393075> yyy.\n **•** [Website (News, blog, store and zzz.)](https://mc.skychain.me)\n **•** Whenever you faced with a problem [online support](https://mc.skychain.me/destek) or discord support at <#827532006203850773> with command \`!help\` don't hesitate.\n **•** If you left our Discord server and want to come back, use this link: [https://discord.gg/48ZD8QDxJE](https://discord.gg/48ZD8QDxJE)\n\nTo sum up...")
     member.send(welcome)
-    const vote = new Discord.MessageEmbed()
+    const social = new Discord.MessageEmbed()
       .setColor("RANDOM")
       .setDescription("...before forget! I'll drop down our socials and profiles, so you can stay tuned with us! Share our CoinMarketCal profile with your friends and give vote 'Real' for our upcoming events allways!")
       .addFields(
-    	  { name: "1. Link", value: "[minecraft-mp.com](https://vote1.skychain.me)", inline: true },
-    	  { name: "2. Link", value: "[planetminecraft.com](https://vote2.skychain.me)", inline: true },
-    	  { name: "3. Link", value: "[topg.org](https://vote3.skychain.me)", inline: true },
-    	  { name: "4. Link", value: "[minecraft-server.net](https://vote4.skychain.me)", inline: true },
-    	  { name: "5. Link", value: "[minecraftserver.gen.tr](https://vote5.skychain.me)", inline: true },
-    	  { name: "6. Link", value: "[forum.gamer.com.tr](https://fgamer.skychain.me)", inline: true },
+    	  { name: "Official Website", value: "[Info, app and more.](https://brightunion.io/)", inline: true },
+    	  { name: "CoinMarketCal", value: "[Upcoming events.](https://coinmarketcal.com/en/coin/bright-union)", inline: true },
+    	  { name: "Telegram", value: "[Chat channel.](https://t.me/brightunion)", inline: true },
+    	  { name: "Medium", value: "[News and blog posts.](https://brightunion.medium.com/)", inline: true },
+    	  { name: "Twitter", value: "[News and tweets.](https://twitter.com/bright_union)", inline: true },
+    	  { name: "Instagram", value: "[Visual posts.](https://www.instagram.com/brightunion/)", inline: true },
 		  )
-    member.send(vote)
+    member.send(social)
   }
-  if (member.guild.id !== "885091679219118091") {
+  if (member.guild.id !== "890247463817072671") {
     const promotion = new Discord.MessageEmbed()
       .setColor("RANDOM")
       .setAuthor("Bright Union DeFi Insurance Aggregator", "https://ibb.co/R2TxgQx", "https://brightunion.io")
     member.send(promotion)
-    member.send("https://discord.gg/48ZD8QDxJE")
+    member.send("https://discord.gg/Mfza23wHfa")
   }
 });
 
@@ -173,9 +173,6 @@ client.on('guildMemberAdd', member => {
 //=========================================================================
 
 client.on("guildMemberAdd", (member) => {
-  if (db.has(`guilds_${member.guild.id}.otorol`)) {
-    member.roles.add(db.get(`guilds_${member.guild.id}.otorol`))
-  }
   if (db.has(`guilds_${member.guild.id}.giris`)) {
     var welcome = member.guild.channels.cache.get(db.get(`guilds_${member.guild.id}.giris`))
     embed.setColor('#05fb22')
