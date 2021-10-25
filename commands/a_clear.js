@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const db = require('quick.db');
 
 exports.run = function(client, message, args) {
   if (message.guild !== null)
@@ -21,9 +22,9 @@ exports.run = function(client, message, args) {
 
 exports.conf = {
   enabled: true, 
-  guildOnly: false, 
+  guildOnly: true, 
   aliases: [],
-  permLevel: 1
+  permLevel: 0
 };
 
 exports.help = {
