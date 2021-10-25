@@ -6,7 +6,7 @@ exports.run = (client, message, args) => {
   const faq = new Discord.MessageEmbed()
     .setColor("BLUE")
     .setTitle("How to buy $BRIGHT?")
-    .setDescription("Please check the following video to learn how to buy $BRIGHT on Uniswap: \n [Youtube](https://www.youtube.com/watch?v=QsDpk4T0TII&t=9s) \n\n $BRIGHT also available on MEXC. Here is the link to buy on MEXC: \n [MEXC](https://www.mexc.com/exchange/BRIGHT_USDT)")
+    .setDescription("Please check the following video to learn how to buy $BRIGHT on Uniswap: \n [Youtube](https://www.youtube.com/watch?v=QsDpk4T0TII&t=9s) \n\n $BRIGHT also available on MEXC. Here is the link to buy on MEXC: \n [MEXC](https://www.mexc.com/exchange/BRIGHT_USDT) \n\n CoinGecko Link: \n [CoinGecko](https://www.coingecko.com/tr/coins/bright-union) \n\n CoinMarketCal Link: \n [CoinMarketCal]https://coinmarketcap.com/currencies/bright-union/) ")
     
   message.channel.send(faq);
 };
