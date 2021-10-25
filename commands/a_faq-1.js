@@ -5,7 +5,7 @@ exports.run = (client, message, args) => {
   message.delete();
   const faq = new Discord.MessageEmbed()
     .setColor("BLUE")
-    .setTitle("What is a cover?")
+    .setTitle("**What is a cover?**")
     .setURL("https://docs.brightunion.io/faq/faq-buy-cover#what-is-a-cover")
     .setDescription("A Cover is a decentralized alternative to an insurance policy. It is not the same as insurance because it is a permissionless process where anyone from the community can provide the required capital. The rules of the cover are executed by a smart contract on the blockchain which is created by one of the risk platforms:")
     .addField('Nexus Mutual', '[Integration complete Q2 2021](https://nexusmutual.io/)', true)
