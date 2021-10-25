@@ -1,7 +1,6 @@
 const Discord = require("discord.js");
 const fs = require("fs");
 const db = require("quick.db");
-var ayarlar = require("../ayarlar.json");
 
 const aç = ["on", "open"];
 const kapat = ["off", "close"];
