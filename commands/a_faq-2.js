@@ -20,7 +20,7 @@ exports.conf = {
 };
 
 exports.help = {
-  name: 'faq-how_to_buy',
+  name: 'buy',
   description: 'Admin command.',
   usage: ''
 };
