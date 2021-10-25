@@ -149,7 +149,7 @@ client.on('guildMemberAdd', member => {
     member.send(welcome)
     const vote = new Discord.MessageEmbed()
       .setColor("RANDOM")
-      .setDescription("...before forget! I'll drop down our socials and profiles, so you can stay tuned with us! Share our CoinMarketCal profile with your friends and give vote "Real" for our upcoming events allways!")
+      .setDescription("...before forget! I'll drop down our socials and profiles, so you can stay tuned with us! Share our CoinMarketCal profile with your friends and give vote 'Real' for our upcoming events allways!")
       .addFields(
     	  { name: "1. Link", value: "[minecraft-mp.com](https://vote1.skychain.me)", inline: true },
     	  { name: "2. Link", value: "[planetminecraft.com](https://vote2.skychain.me)", inline: true },
