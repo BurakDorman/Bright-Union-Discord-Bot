@@ -17,7 +17,6 @@ exports.run = function(client, message, args) {
       if (deletedMessages.size < 1) return message.reply("I couldn't delete any messages! _(I cannot delete messages more than **14** days old!)_");
     })
     message.channel.send(`**${args[0]}** messages have been deleted!`).then(msg => msg.delete({timeout: 4000}));
-  }
 };
 
 exports.conf = {
