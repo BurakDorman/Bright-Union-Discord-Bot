@@ -6,7 +6,7 @@ exports.run = (client, message, args) => {
   let mesaj = args.slice(0).join(' ');
   if (mesaj.length < 1) return message.reply('Missing text.');
   const faq = new Discord.MessageEmbed()
-    .setColor("RANDOM")
+    .setColor("BLUE")
     .setTitle("What is a cover?")
     .setURL("https://docs.brightunion.io/faq/faq-buy-cover#what-is-a-cover")
     .setTimestamp()
@@ -27,7 +27,7 @@ exports.conf = {
 };
 
 exports.help = {
-  name: 'faq',
+  name: 'faq-what_is_a_cover',
   description: 'Admin command.',
   usage: ''
 };
