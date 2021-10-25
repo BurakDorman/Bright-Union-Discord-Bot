@@ -7,7 +7,7 @@ exports.run = (client, message, args) => {
     .setColor("BLUE")
     .setTitle("Unstake Procedure: ")
 
-    .setDescription("\n\n There is a 7-day cool-down period if you want to unstake your $BRIGHT tokens.\n Then, You will have 2 days to withdraw your tokens. If you do not withdraw them in a given, $BRIGHT tokens will go to the staking pool automatically.")
+    .setDescription("\n\n There is a 7-day cool-down period if you want to unstake your $BRIGHT tokens.\n Then, You will have 2 days to withdraw your tokens. If you do not withdraw them in a given time, $BRIGHT tokens will go to the staking pool automatically.")
  
   message.channel.send(faq);
 };
