@@ -3,7 +3,7 @@ const db = require("quick.db");
 
 exports.run = async (client, message, args) => {
   if (message.guild !== null)
-  var role = message.guild.roles.find(role => role.id === "902146856405057576");
+  var role = message.guild.roles.cache.find(role => role.id === "902146856405057576");
   if (message.channel.id === "901146961384710185") {
     message.member.addRole(role);
     //message.author.id.roles.add("902146856405057576")
