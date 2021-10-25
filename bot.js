@@ -3,7 +3,6 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const db = require('quick.db')
 const moment = require("moment");
-const config = require("./config.json");
 const express = require('express');
 const activities = require('./assets/activities');
 ////
@@ -128,7 +127,7 @@ client.yetkiler = message => {
   if(message.member.hasPermission("MANAGE_GUILD")) permlvl = 4;
   if(message.member.hasPermission("ADMINISTRATOR")) permlvl = 5;
   if(message.author.id === message.guild.ownerID) permlvl = 6;
-  if(message.author.id === config.owner) permlvl = 7;
+  if(message.author.id === process.env.owner) permlvl = 7;
   return permlvl;
 };
 
@@ -212,4 +211,4 @@ client.on("messageUpdate", async function (oldMessage, newMessage) {
   }
 });
 
-client.login(config.token)
+client.login(process.env.token)
