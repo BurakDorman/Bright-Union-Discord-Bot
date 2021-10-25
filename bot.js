@@ -208,6 +208,10 @@ client.on("messageUpdate", async function (oldMessage, newMessage) {
   }
 });
 
+//=========================================================================
+// SPAM RESTRICTION AT VERIFY CHANNEL
+//=========================================================================
+
 client.on("message", async(message) => {
   if (message.guild !== null)
   if (message.member.id !== "901099642735955969")
@@ -218,6 +222,118 @@ client.on("message", async(message) => {
       message.delete();
     }
   }
+});
+
+//=========================================================================
+// TICKET SYSTEM
+//=========================================================================
+
+client.on("message", async(message) => {
+  if (message.guild !== null)
+  if (message.guild.id === "890247463817072671") {
+    const i = await db.fetch(`desteksistemi_${message.guild.id}`, true)
+    if(i) {
+      if(message.content.toLowerCase() === '!destek') {
+        let kanal1 = await db.fetch(`destekkanal_${message.guild.id}`)
+        let kategori = db.get(`destekkg_${message.guild.id}`)
+        if(message.channel.id != kanal1) return message.channel.send(new Discord.MessageEmbed().setColor('RANDOM').setDescription(`This command can only be executed at <#${kanal1}> channel.`)).then(msg => msg.delete({timeout: 5000}))
+        if(message.channel.id == kanal1) {
+          message.guild.channels.create(`talep-${message.author.username}`, "text").then(c => {
+            //db.add(`talepler_${message.author.id}`, +1)
+            c.setTopic(`You can type !close when you want to close your ticket.`);
+            let destek = message.guild.roles.cache.find(name => "Destek");
+            let destekrol = db.fetch(`destekrol_${message.guild.id}`);
+            let role2 = message.guild.roles.cache.find(name => "@everyone");
+            c.createOverwrite(destek, {
+              SEND_MESSAGES: true,
+              VIEW_CHANNEL: true
+            });
+            c.createOverwrite(destekrol, {
+              SEND_MESSAGES: true,
+              VIEW_CHANNEL: true
+            });
+            c.createOverwrite(role2, {
+              SEND_MESSAGES: false,
+              VIEW_CHANNEL: false
+            });
+            c.createOverwrite(message.author, {
+              SEND_MESSAGES: true,
+              VIEW_CHANNEL: true
+            });
+            message.channel.send(`:white_check_mark: Your ticket is created, ${c}.`).then(msg => msg.delete({timeout: 5000}));
+            message.delete();
+            const embed = new Discord.MessageEmbed()
+              .setColor(0xCF40FA)
+              .addField(`Hello ${message.author.username}.`, `Could you tell us why did you open this support ticket? Managers will answer here ASAP. ||@everyone||`)
+              .addField(`To close the ticket`,`type !close`)
+              .setTimestamp();
+            c.send({ embed: embed });
+            c.setParent(`${kategori}`)
+          }).catch(console.error);
+        }
+      }
+      if(message.content.toLowerCase().startsWith(prefix + `close`)) {
+        if(!message.channel.name.startsWith(`talep-`)) return message.channel.send(`You can use this command only at your own support channel.`);
+          message.channel.send(`Are you sure? It cannot irrevocable!\nType \`confirm\` to confirm in **10 seconds**.`)
+          .then((m) => {
+            message.channel.awaitMessages(response => response.content === 'confirm', {
+              max: 1,
+              time: 10000,
+              errors: ['time'],
+            })
+          .then((collected) => {
+            //db.add(`talepler_${message.author.id}`, -1)
+            message.channel.delete();
+            message.guild.channels.delete();
+          })
+          .catch(() => {
+            m.edit('Process timed out, your support ticket is still open.').then(m2 => {
+              m2.delete();
+            }, 3000);
+          });
+        });
+      }
+    }
+  }
+});
+
+//=========================================================================
+// ROLE WITH REACTION
+//=========================================================================
+
+client.on("messageReactionAdd", async function (reaction, user) {
+
+  if (reaction.message.partial) await reaction.message.fetch()
+  if (reaction.partial) await reaction.fetch()
+
+  if (db.has(`guilds_${reaction.message.guild.id}.emojirol.channel`) && db.has(`guilds_${reaction.message.guild.id}.emojirol.${reaction.emoji.name}`)) {
+      if (reaction.message.channel.id == db.get(`guilds_${reaction.message.guild.id}.emojirol.channel`)) {
+
+          var member = reaction.message.guild.members.cache.find(m => m.id == user.id)
+          member.roles.add(db.get(`guilds_${reaction.message.guild.id}.emojirol.${reaction.emoji.name}`))
+      }
+  }
+
+});
+
+
+client.on("messageReactionRemove", async function (reaction, user) {
+
+  if (reaction.message.partial) await reaction.message.fetch()
+  if (reaction.partial) await reaction.fetch()
+
+  if (db.has(`guilds_${reaction.message.guild.id}.emojirol.channel`) && db.has(`guilds_${reaction.message.guild.id}.emojirol.${reaction.emoji.name}`)) {
+
+      if (reaction.message.channel.id == db.get(`guilds_${reaction.message.guild.id}.emojirol.channel`)) {
+
+          var member = reaction.message.guild.members.cache.find(m => m.id == user.id)
+
+          member.roles.remove(db.get(`guilds_${reaction.message.guild.id}.emojirol.${reaction.emoji.name}`))
+
+      }
+
+  }
+
 });
 
 client.login(process.env.token)
