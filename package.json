@@ -1,4 +1,7 @@
 {
+  "name": "brightbot",
+  "version": "1.0",
+  "description": "Bright Union",
   "main": "bot.js",
   "scripts": {
     "start": "node bot.js"
