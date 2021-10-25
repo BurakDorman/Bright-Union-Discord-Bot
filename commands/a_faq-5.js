@@ -5,7 +5,8 @@ exports.run = (client, message, args) => {
   message.delete();
   const faq = new Discord.MessageEmbed()
     .setColor("BLUE")
-    .setDescription("How to Buy Decentralized Crypto Coverage?  \n Check out all the covers available at app.brightunion.io/coverages and here is a tutorial for the process: \n  https://www.youtube.com/watch?v=1D1KIvjuw-Y")
+    .setTitle("**How to Buy Decentralized Crypto Coverage?**")
+    .setDescription("  \n Check out all the covers available at app.brightunion.io/coverages and here is a tutorial for the process: \n  https://www.youtube.com/watch?v=1D1KIvjuw-Y")
   message.channel.send(faq);
 };
 
