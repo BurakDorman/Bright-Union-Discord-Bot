@@ -210,7 +210,7 @@ client.on("messageUpdate", async function (oldMessage, newMessage) {
 
 client.on("message", async(message) => {
   if (message.guild !== null)
-  if (message.author.id !== "901099642735955969")
+  if (message.member.id !== "901099642735955969")
   if (message.guild.id === "890247463817072671")
   if (message.channel.id === "901146961384710185") {
     if(message.content.toLowerCase() !== "!verify") {
