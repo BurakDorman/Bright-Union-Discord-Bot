@@ -10,7 +10,6 @@ const app = express()
 app.get('/', (req, res) => res.send("Bot Aktif"))
 app.listen(process.env.PORT, () => console.log('Port is set: ' + process.env.PORT))
 ////
-socket = io.listen(process.env.PORT)
 var prefix = process.env.prefix;
 
 client.on("message", message => {
@@ -139,14 +138,14 @@ const logEmbed = new Discord.MessageEmbed()
 // INTERVAL
 //=========================================================================
 
-//client.on("ready", () => {
+client.on("ready", () => {
 
-//  setInterval(function() {
-//    const embed = new Discord.MessageEmbed()
-//    client.channels.cache.get(`901084999988707378`).send("Bot is live.")
-//  }, 100000);
+  setInterval(function() {
+    const embed = new Discord.MessageEmbed()
+    client.channels.cache.get(`901084999988707378`).send("Bot is live.").then(msg => msg.delete({timeout: 5000}))
+  }, 100000);
 
-//})
+})
 
 //=========================================================================
 // GREETINGS AND INTRODUCTION process.env.
