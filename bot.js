@@ -136,6 +136,19 @@ const logEmbed = new Discord.MessageEmbed()
     .setTitle('Log')
 
 //=========================================================================
+// INTERVAL
+//=========================================================================
+
+client.on("ready", () => {
+
+  setInterval(function() {
+    const embed = new Discord.MessageEmbed()
+    client.channels.cache.get(`901084999988707378`).send("Bot is live.")
+  }, 100000);
+
+})
+
+//=========================================================================
 // GREETINGS AND INTRODUCTION process.env.
 //=========================================================================
 
