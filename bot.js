@@ -139,20 +139,18 @@ const logEmbed = new Discord.MessageEmbed()
 //=========================================================================
 
 client.on("ready", () => {
-
   setInterval(function() {
     const embed = new Discord.MessageEmbed()
-    client.channels.cache.get(`901084999988707378`).send("Bot is live.").then(msg => msg.delete({timeout: 5000}))
-  }, 100000);
-
+    client.channels.cache.get(`901146961384710185`).send("||@here||\nYou should read our community rules then get your account verified by typing \`!verify\` here.").then(msg => msg.delete({timeout: 20000}))
+  }, 3600000);
 })
 
 //=========================================================================
-// GREETINGS AND INTRODUCTION process.env.
+// GREETINGS AND INTRODUCTION
 //=========================================================================
 
 client.on('guildMemberAdd', member => {
-  if (member.guild.id === "890247463817072671") { //cmc, cgecko, cmcal, isthiscoinascam
+  if (member.guild.id === "890247463817072622") {
     const welcome = new Discord.MessageEmbed()
       .setColor("RANDOM")
       .setAuthor("Bright Union DeFi Insurance Aggregator", "https://ibb.co/R2TxgQx", "https://brightunion.io")
@@ -171,13 +169,13 @@ client.on('guildMemberAdd', member => {
 		  )
     member.send(social)
   }
-  if (member.guild.id !== "890247463817072671") {
-    const promotion = new Discord.MessageEmbed()
-      .setColor("RANDOM")
-      .setAuthor("Bright Union DeFi Insurance Aggregator", "https://ibb.co/R2TxgQx", "https://brightunion.io")
-    member.send(promotion)
-    member.send("https://discord.gg/Mfza23wHfa")
-  }
+  //if (member.guild.id !== "890247463817072671") {
+    //const promotion = new Discord.MessageEmbed()
+      //.setColor("RANDOM")
+      //.setAuthor("Bright Union DeFi Insurance Aggregator", "https://ibb.co/R2TxgQx", "https://brightunion.io")
+    //member.send(promotion)
+    //member.send("https://discord.gg/Mfza23wHfa")
+  //}
 });
 
 //=========================================================================
@@ -188,7 +186,7 @@ client.on("guildMemberAdd", (member) => {
   if (db.has(`guilds_${member.guild.id}.giris`)) {
     var welcome = member.guild.channels.cache.get(db.get(`guilds_${member.guild.id}.giris`))
     embed.setColor('#05fb22')
-    embed.setDescription(`**${member.user.username}** has joint us! Now we are ${member.guild.members.cache.size} fellas!`)
+    embed.setDescription(`**${member.user.username}** has joint us! Now we are ${member.guild.members.cache.size} fellows!`)
     welcome.send(embed)
   }
 });
