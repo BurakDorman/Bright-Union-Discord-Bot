@@ -4,7 +4,7 @@ const db = require("quick.db");
 exports.run = async (client, message, args) => {
   if (message.guild !== null)
   var role = message.guild.roles.cache.find(role => role.id === "902146856405057576");
-  var newcomer = message.member.id
+  var newcomer = message.author.id
   if (message.channel.id === "901146961384710185") {
     message.member.roles.add(role);
     message.delete();
