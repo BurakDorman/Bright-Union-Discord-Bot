@@ -5,7 +5,6 @@ exports.run = (client, message, args) => {
   if (message.guild !== null)
   if (message.guild.id === "890247463817072671")
   if (message.channel.id === "902144996147355688" || message.channel.id === "890247978038726677") {
-    message.delete();
     const faq = new Discord.MessageEmbed()
       .setColor("#00a5ff")
       .setTitle("How to buy $BRIGHT?")
@@ -14,6 +13,9 @@ exports.run = (client, message, args) => {
       .addField('CoinGecko', '[Add to your favourites.](https://www.coingecko.com/coins/bright-union)', true)
       .addField('CoinMarketCap', '[Add to your watchlist.](https://coinmarketcap.com/currencies/bright-union/)', true)
     message.channel.send(faq);
+    if (message.channel.id === "890247978038726677" {
+      message.delete();
+    }
   }
 };
 
