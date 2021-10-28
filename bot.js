@@ -179,6 +179,17 @@ client.on('guildMemberAdd', member => {
 });
 
 //=========================================================================
+// INTRODUCTIONS
+//=========================================================================
+
+client.on("guildMemberAdd", (member) => {
+    var introductions = member.guild.channels.cache.get("902905003675639848")
+    embed.setColor('#05fb22')
+    embed.setDescription(`**${member.user.username}** has joint us!`)
+    introductions.send(embed)
+});
+
+//=========================================================================
 // LOG
 //=========================================================================
 
