@@ -13,9 +13,6 @@ exports.run = (client, message, args) => {
       .addField('CoinGecko', '[Add to your favourites.](https://www.coingecko.com/coins/bright-union)', true)
       .addField('CoinMarketCap', '[Add to your watchlist.](https://coinmarketcap.com/currencies/bright-union/)', true)
     message.channel.send(faq);
-    if (message.channel.id === "890247978038726677" {
-      message.delete();
-    }
   }
 };
 
