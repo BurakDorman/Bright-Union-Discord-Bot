@@ -4,9 +4,10 @@ const db = require('quick.db');
 exports.run = (client, message, args) => {
   if (message.guild !== null)
   if (message.guild.id === "890247463817072671")
-  let bot = "902144996147355688"
-  let faq = "890247978038726677"
-  if (message.channel.id === bot || message.channel.id === faq) {
+  let croom = message.channel.id
+  let broom = "902144996147355688"
+  let froom = "890247978038726677"
+  if (croom === broom || croom === froom) {
     message.delete();
     const faq = new Discord.MessageEmbed()
       .setColor("BLUE")
