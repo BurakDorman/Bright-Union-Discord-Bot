@@ -9,7 +9,7 @@ exports.run = (client, message, args) => {
     const faq = new Discord.MessageEmbed()
       .setColor("BLUE")
       .setTitle("How to buy <:bright:903289521381187635>$BRIGHT?")
-      .setDescription("Please check [this video](https://www.youtube.com/watch?v=QsDpk4T0TII&t=9s) to learn how to buy <:bright:903289521381187635>$BRIGHT on Uniswap:\n\n <:bright:903289521381187635>$BRIGHT also available on [MEXC](https://www.mexc.com/exchange/BRIGHT_USDT).\n�")
+      .setDescription("<:uniswap:903294803364687923> Please check [this video](https://www.youtube.com/watch?v=QsDpk4T0TII&t=9s) to learn how to buy $BRIGHT on Uniswap:\n\n<:mexc:903294303537881130> [$BRIGHT](https://www.coingecko.com/tr/coins/bright-union) is also available on [MEXC](https://www.mexc.com/exchange/BRIGHT_USDT).\n \nFor price tracking and more:")
       .addField('CoinGecko', '[Token info and price.](https://www.coingecko.com/tr/coins/bright-union)', true)
       .addField('CoinMarketCap', '[Token info and price.](https://coinmarketcap.com/currencies/bright-union/)', true)
     message.channel.send(faq);
@@ -20,11 +20,11 @@ exports.conf = {
   enabled: true,
   guildOnly: true,
   aliases: [],
-  permLevel: 3
+  permLevel: 0
 };
 
 exports.help = {
   name: 'buy',
-  description: 'Admin command.',
+  description: 'Useful command.',
   usage: ''
 };
