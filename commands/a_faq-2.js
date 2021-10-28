@@ -9,9 +9,9 @@ exports.run = (client, message, args) => {
     const faq = new Discord.MessageEmbed()
       .setColor("BLUE")
       .setTitle("How to buy $BRIGHT?")
-      .setDescription("<:uniswap:903294803364687923> Please check [this video](https://www.youtube.com/watch?v=QsDpk4T0TII&t=9s) to learn how to buy $BRIGHT on Uniswap:\n\n<:mexc:903294303537881130> [$BRIGHT](https://www.coingecko.com/tr/coins/bright-union) is also available on [MEXC](https://www.mexc.com/exchange/BRIGHT_USDT).\n \n<:bright:903289521381187635> For price tracking and more:")
-      .addField('CoinGecko', '[Token info and price.](https://www.coingecko.com/tr/coins/bright-union)', true)
-      .addField('CoinMarketCap', '[Token info and price.](https://coinmarketcap.com/currencies/bright-union/)', true)
+      .setDescription("<:uniswap:903294803364687923> Please check [this video](https://www.youtube.com/watch?v=QsDpk4T0TII&t=9s) to learn how to buy [$BRIGHT](https://coinmarketcap.com/currencies/bright-union/) on Uniswap.\n\n<:mexc:903294303537881130> [$BRIGHT](https://www.coingecko.com/coins/bright-union) is also available on [MEXC](https://www.mexc.com/exchange/BRIGHT_USDT).\n \n<:bright:903289521381187635> For price tracking and more:")
+      .addField('CoinGecko', '[Add to your favourites.](https://www.coingecko.com/coins/bright-union)', true)
+      .addField('CoinMarketCap', '[Add to your watchlist.](https://coinmarketcap.com/currencies/bright-union/)', true)
     message.channel.send(faq);
   }
 };
