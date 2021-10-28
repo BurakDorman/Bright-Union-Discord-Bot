@@ -5,8 +5,8 @@ exports.run = (client, message, args) => {
   message.delete();
   const faq = new Discord.MessageEmbed()
     .setColor("BLUE")
-    .setTitle("**Bright Union Refferal Program**")
-    .setDescription("We are excited to announce our new referral program! \n Refer a friend with your refferal link and both you and your refferal receive $20 worth of BRIGHT tokens when your friend gets coverage for a preminium of $200 or more.\n To learn more about refferal program please visit the following medium link: \n [Medium](https://brightunion.medium.com/bright-union-referral-program-bfde221c949a)")
+    .setTitle("**How does referral program work?**")
+    .setDescription("We are excited to announce our new referral program!\nRefer a friend with your referral link and both you and your referral receive $20 worth of $BRIGHT tokens when your friend gets coverage for a premium of $200 or more.\nTo learn more about refferal program please visit this [Medium post](https://brightunion.medium.com/bright-union-referral-program-bfde221c949a).")
   message.channel.send(faq);
 };
 
@@ -18,7 +18,7 @@ exports.conf = {
 };
 
 exports.help = {
-  name: 'refer',
+  name: 'referral',
   description: 'Admin command.',
   usage: ''
 };
