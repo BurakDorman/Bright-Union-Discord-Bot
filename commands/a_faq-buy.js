@@ -24,7 +24,7 @@ exports.conf = {
 };
 
 exports.help = {
-  name: 'buy bright',
+  name: 'buy',
   description: 'Useful command.',
   usage: ''
 };
