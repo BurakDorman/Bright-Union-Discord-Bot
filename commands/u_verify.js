@@ -8,7 +8,7 @@ exports.run = async (client, message, args) => {
   if (message.channel.id === "901146961384710185") {
     message.member.roles.add(role);
     message.delete();
-    message.channel.send('A user has been verified!').then(msg => msg.delete({timeout: 3000}))
+    message.channel.send('You have been verified! Check your DM box, you''ll find me there!').then(msg => msg.delete({timeout: 3000}))
     const verified = new Discord.MessageEmbed()
       .setColor("BLUE")
       .setAuthor("Bright Union DeFi Insurance Aggregator", "https://hiluin.com/discord-assets/brightunion.png", "https://brightunion.io")
