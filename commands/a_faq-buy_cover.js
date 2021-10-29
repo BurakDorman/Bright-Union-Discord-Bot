@@ -23,7 +23,7 @@ exports.conf = {
 };
 
 exports.help = {
-  name: 'buy coverage',
+  name: 'cover',
   description: 'Useful command.',
   usage: ''
 };
