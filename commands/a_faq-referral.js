@@ -24,6 +24,6 @@ exports.conf = {
 
 exports.help = {
   name: 'referral',
-  description: 'Admin command.',
+  description: 'Common command.',
   usage: ''
 };
