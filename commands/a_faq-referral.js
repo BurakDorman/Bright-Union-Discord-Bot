@@ -10,7 +10,7 @@ exports.run = (client, message, args) => {
       .setColor("BLUE")
       .setTitle("How does referral program work?")
       .setURL("https://brightunion.medium.com/bright-union-referral-program-bfde221c949a")
-      .setDescription("We are excited to announce our new referral program!\nRefer a friend with your referral link and both you and your referral receive $20 worth of $BRIGHT tokens when your friend gets coverage for a premium of $200 or more.\nTo learn more about our referral program please visit this [Medium post](https://brightunion.medium.com/bright-union-referral-program-bfde221c949a).")
+      .setDescription("We are excited to announce our new referral program!\nRefer a friend with your referral link and both you and your referral receive $20 worth of [$BRIGHT](https://coinmarketcap.com/currencies/bright-union/) tokens when your friend [gets coverage](https://app.brightunion.io/coverages) for a premium of $200 or more.\nTo learn more about our referral program please visit this [Medium post](https://brightunion.medium.com/bright-union-referral-program-bfde221c949a).")
     message.channel.send(faq);
   }
 };
