@@ -28,6 +28,6 @@ exports.conf = {
 
 exports.help = {
   name: 'what',
-  description: 'Useful command.',
+  description: 'Common command.',
   usage: ''
 };
