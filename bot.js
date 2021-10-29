@@ -7,7 +7,7 @@ const express = require('express');
 const activities = require('./assets/activities');
 ////
 const app = express()
-app.get('/', (req, res) => res.send("Bot Aktif"))
+app.get('/', (req, res) => res.send("Bot is Online"))
 app.listen(process.env.PORT, () => console.log('Port is set: ' + process.env.PORT))
 ////
 var prefix = process.env.prefix;
@@ -138,12 +138,12 @@ const logEmbed = new Discord.MessageEmbed()
 // INTERVAL
 //=========================================================================
 
-client.on("ready", () => {
-  setInterval(function() {
-    const embed = new Discord.MessageEmbed()
-    client.channels.cache.get(`901146961384710185`).send("||@here||\nYou should read our community rules then get your account verified by typing \`!verify\` here.").then(msg => msg.delete({timeout: 20000}))
-  }, 3600000);
-})
+//client.on("ready", () => {
+//  setInterval(function() {
+//    const embed = new Discord.MessageEmbed()
+//    client.channels.cache.get(`901146961384710185`).send("||@here||\nYou should read our community rules then get your account verified by typing \`!verify\` here.").then(msg => msg.delete({timeout: 20000}))
+//  }, 3600000);
+//})
 
 //=========================================================================
 // GREETINGS AND INTRODUCTION
