@@ -9,6 +9,7 @@ exports.run = (client, message, args) => {
     const faq = new Discord.MessageEmbed()
       .setColor("#00a5ff")
       .setTitle("How to unstake?")
+      .setURL("https://docs.brightunion.io/how-to-guide/stake-bright")
       .setDescription("There is a 7-day cooldown period if you want to unstake your $BRIGHT tokens.\n Then, You will have 2 days to withdraw your tokens. If you do not withdraw them in a given time, $BRIGHT tokens will go to the staking pool automatically.")
     message.channel.send(faq);
   }
