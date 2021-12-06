@@ -1,2 +1,2 @@
 # BrightUnionAssistant
-Discord JS bot which offers assistance.
+Discord JS bot which is offer assistance.
